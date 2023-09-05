@@ -1,18 +1,21 @@
 ﻿using Application1.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace Application1.Data
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUsers>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options):base(options)
         {
         }
+        public DbSet<ApplicationUsers> Users { get; set; }
         public DbSet<Villa>Villas { get; set; }
         public DbSet<VillaNumber>VillasNumber { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Villa>().HasData(
                 new Villa()
                 {

@@ -11,7 +11,9 @@ namespace Application1.AutoMapper
             CreateMap<VillaCreateDTO, Villa>().ReverseMap();
             CreateMap<VillaUpdateDTO, Villa>().ReverseMap();
             CreateMap<VillaDTO, Villa>().ReverseMap();
-
+            CreateMap<VillaNumberCreateDTO, VillaNumber>().ReverseMap();
+            CreateMap<VillaNumberUpdateDTO, VillaNumber>().ReverseMap();
+            CreateMap<VillaNumberDTO, VillaNumber>().ReverseMap();
         }
     }
 }

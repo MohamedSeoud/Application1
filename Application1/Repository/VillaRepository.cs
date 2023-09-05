@@ -18,7 +18,5 @@ namespace Application1.Repository
             await _db.SaveChangesAsync();
         }
 
-
-
     }
 }

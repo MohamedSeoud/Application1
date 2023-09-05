@@ -27,7 +27,7 @@ namespace Application1.Repository
             return await villas.ToListAsync();
         }
 
-        public async Task<T> GetTAsync(Expression<Func<T, bool>> filter = null, bool tracking = true)
+        public async Task<T> GetAsync(Expression<Func<T, bool>> filter = null, bool tracking = true)
         {
             IQueryable<T> entity = _dbSet;
             if (!tracking) entity = entity.AsNoTracking();
@@ -37,9 +37,8 @@ namespace Application1.Repository
 
 
 
-        public async Task RemoveAsync(int id)
+        public async Task RemoveAsync(T entity)
         {
-            var entity = await _dbSet.FirstOrDefaultAsync(x => x.Id == id);
             _dbSet.Remove(entity);
             await SaveAsync();
         }
